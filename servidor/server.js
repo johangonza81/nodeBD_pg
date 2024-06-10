@@ -1,9 +1,9 @@
-import 'dotenv/config'
+
 import express from "express";
 import cors from 'cors';
 import chalk from "chalk";
 import {logger} from 'logger-express';
-import rutas from "../servidor/src/rutas/rutas.js";
+import rutas from "./src/rutas/rutas.js";
 
 const app = express();
 

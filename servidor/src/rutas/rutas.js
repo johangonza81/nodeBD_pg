@@ -1,69 +1,31 @@
 import express from "express";
-import pool from "../database2/db.js";
+import { postLog } from "../middleware/posts.middleware.js";
+import * as controller  from '../controller/controller.posts.js';
+
 
 
 const router = express.Router();
 
-let posts = [];
 
-// Obtener todos los posts
-router.get('/posts', async (req, res) => {
-    try {
-      const result = await pool.query('SELECT * FROM posts');
-      res.json(result.rows);
-    } catch (error) {
-      res.status(500).json({ message: error.message });
-    }
-  });
+
+  // Obtener todos los posts
+  router.get('/posts', postLog,controller.getPost)
   
   // Crear un nuevo post
-  router.post('/posts', async (req, res) => {
-    try {
-      const { titulo, img, descripcion } = req.body;
-      const result = await pool.query(
-        'INSERT INTO posts (titulo, img, descripcion) VALUES ($1, $2, $3) RETURNING *',
-        [titulo, img, descripcion]
-      );
-      res.status(201).json(result.rows[0]);
-      
-    } catch (error) {
-      res.status(500).json({ message: error.message });
-    }
-  
-  });
+  router.post('/posts', postLog,controller.agregarPost)
  
   
   // Dar like a un post
-  router.put('/posts/like/:id', async (req, res) => {
-    try {
-      const { id } = req.params;
-      const result = await pool.query(
-        'UPDATE posts SET likes = likes + 1 WHERE id = $1 RETURNING *',
-        [id]
-      );
-      if (result.rows.length === 0) {
-        res.status(404).json({ message: 'Post not found' });
-      } else {
-        res.json(result.rows[0]);
-      }
-    } catch (error) {
-      res.status(500).json({ message: error.message });
-    }
-  });
+  router.put('/posts/like/:id',postLog,controller.like)
+  
   
   // Eliminar un post
-  router.delete('/posts/:id', async (req, res) => {
-    try {
-      const { id } = req.params;
-      const result = await pool.query('DELETE FROM posts WHERE id = $1 RETURNING *', [id]);
-      if (result.rows.length === 0) {
-        res.status(404).json({ message: 'Post not found' });
-      } else {
-        res.status(204).send();
-      }
-    } catch (error) {
-      res.status(500).json({ message: error.message });
-    }
-  });
+  router.delete('/posts/:id', postLog,controller.eliminarPost)
+
+
+  // Cualquier otra Ruta
+  router.all('*',controller.notFund)
   
-  export default router;
+ export default router;
+
+ 

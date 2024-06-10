@@ -1,4 +1,4 @@
-import  'dotenv/config';
+import 'dotenv/config'; 
 
 import pkg from 'pg';
 const {Pool} = pkg;
@@ -6,13 +6,12 @@ const {Pool} = pkg;
 
 const config = {
     
-user:"postgres",
-host:"localhost",
-database:"likeme",
-password:"JOHAN230581",
-port:5432
+user:process.env.DB_USER,
+host:process.env.DB_HOST,
+database:process.env.DB_DATABASE,
+password:process.env.DB_PASSWORD,
+port:parseInt(process.env.DB_PORT, 10)
 }
-
 
 const pool = new Pool(config)
 
