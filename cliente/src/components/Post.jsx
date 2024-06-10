@@ -1,7 +1,8 @@
 function Post({
   post: { id, titulo, img, descripcion, likes },
   like,
-  eliminarPost,
+  eliminarPost
+  
 })
 
 {
@@ -10,7 +11,7 @@ function Post({
       <div className="card-body  p-0">
         <img
           className="card-img-top "
-          src={`"${img}"`}
+          src={img}
         />
         <div className="p-3">
           <h4 className="card-title">{titulo}</h4>
@@ -27,7 +28,7 @@ function Post({
             </div>
             <i
               onClick={() => eliminarPost(id)}
-              className="fa-solid fa-x"
+              className="fa-solid fa-trash"
             ></i>
           </div>
         </div>
