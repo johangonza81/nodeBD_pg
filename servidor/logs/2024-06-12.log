@@ -1,0 +1,28 @@
+
+Started POST /medicamentos for :: ::1 at Tue Jun 11 2024 23:10:05 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {"nombre":"factor x","precio":10,"stock":1}
+Completed: 404 message:  Time response: 111 ms Request ID: [a0c8edc9-9eee-4cb0-8e8e-ba79e085ec18]
+
+Started GET /medicamentos for :: ::1 at Tue Jun 11 2024 23:10:19 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {"nombre":"factor x","precio":10,"stock":1}
+Completed: 404 message:  Time response: 5 ms Request ID: [1d21882d-fde7-4fcb-85dd-87992ae3e594]
+
+Started POST /medicamentos for :: ::1 at Tue Jun 11 2024 23:10:39 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {"nombre":"factor x","precio":10,"stock":1}
+Completed: 404 message:  Time response: 10 ms Request ID: [86060e8f-044c-4661-a5e2-987cf7c4ceda]
+
+Started GET /medicamentos/null for :: ::1 at Tue Jun 11 2024 23:11:06 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 18 ms Request ID: [ec6ab2ce-514d-45e1-ae41-636f4fa1eed7]
+
+Started GET /medicamentos/1 for :: ::1 at Tue Jun 11 2024 23:11:32 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 9 ms Request ID: [53ae6727-04a0-4f60-9072-4bf0c5f0bbbf]
+
+Started GET /medicamentos/null for :: ::1 at Tue Jun 11 2024 23:11:42 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 8 ms Request ID: [d27716e0-11e6-4747-b49e-6b1ee131a191]
+
+Started GET /medicamentos/null for :: ::1 at Tue Jun 11 2024 23:12:20 GMT-0400 (hora estándar de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 9 ms Request ID: [da6705c4-5de8-4854-bdbf-2ae6877a69b6]
